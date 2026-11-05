@@ -296,7 +296,7 @@
                                 <button onclick="openEquipmentLibraryModal()" class="text-xs px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-amber-400 rounded-lg font-semibold shadow border border-amber-600/30">📖 Biblioteca de Itens</button>
                                 <button onclick="openAddItemModal()" class="text-xs px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold shadow">➕ Item Manual</button>
                             </div>
-                        </div>
+                        </div>                    
                         <!-- Sub-abas do Inventário -->
                         <div class="flex flex-wrap gap-2 pt-1 border-b border-gray-700 pb-3">
                             <button onclick="switchInventorySubTab('weapons')" id="inv-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
@@ -350,7 +350,7 @@
                                     <option value="5">Nível 5 - Lenda das Vendas</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                        
+                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                          
                             <div id="seller-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -369,7 +369,7 @@
                                     <option value="5">Nível 5 - Imperador do Comércio</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p> 
+                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>                         
                             <div id="merchant-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -534,7 +534,7 @@
                     <p class="text-xs text-gray-400">Selecione itens oficiais do acervo para adicionar diretamente à sua ficha.</p>
                 </div>
                 <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold">✕</button>
-            </div>     
+            </div>        
             <div class="flex flex-wrap gap-2 pb-2 border-b border-gray-800">
                 <button onclick="switchLibraryCategory('weapons')" id="lib-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
                 <button onclick="switchLibraryCategory('armors')" id="lib-tab-armors" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-950 text-gray-300 hover:bg-gray-800">🛡️ Armaduras e Escudos</button>
@@ -549,6 +549,48 @@
             </div>
             <div class="pt-2 flex justify-end border-t border-gray-800">
                 <button onclick="closeModal('modal-equipment-library')" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 rounded-xl text-xs font-semibold">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Criar Campanha -->
+    <div id="modal-campaign-create" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-bold font-cinzel text-amber-400">Criar Nova Campanha (Mestre)</h3>
+                <button onclick="closeModal('modal-campaign-create')" class="text-gray-400 hover:text-white font-bold">✕</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-gray-400 mb-1">Nome da Campanha</label>
+                    <input type="text" id="new-campaign-name" placeholder="Ex: As Crônicas de Eldoria" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2.5 text-gray-100">
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-1">Sinopse / Descrição</label>
+                    <textarea id="new-campaign-desc" rows="3" placeholder="Resumo da aventura..." class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2.5 text-gray-100"></textarea>
+                </div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeModal('modal-campaign-create')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-200 py-2.5 rounded-xl font-semibold text-xs">Cancelar</button>
+                <button onclick="createCampaignAction()" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded-xl font-semibold text-xs">Criar Mesa</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Entrar em Campanha -->
+    <div id="modal-campaign-join" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-bold font-cinzel text-amber-400">Entrar em Campanha Existente</h3>
+                <button onclick="closeModal('modal-campaign-join')" class="text-gray-400 hover:text-white font-bold">✕</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-gray-400 mb-1">Código / ID da Campanha</label>
+                    <input type="text" id="join-campaign-id" placeholder="Ex: MESA-98762" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2.5 text-gray-100">
+                </div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeModal('modal-campaign-join')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-200 py-2.5 rounded-xl font-semibold text-xs">Cancelar</button>
+                <button onclick="joinCampaignAction()" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded-xl font-semibold text-xs">Conectar</button>
             </div>
         </div>
     </div>
@@ -857,7 +899,7 @@
                 }
             });
             const targetTab = document.getElementById(`tab-${tabName}`);
-            if (targetTab) targetTab.classList.remove('hidden');       
+            if (targetTab) targetTab.classList.remove('hidden');          
             const activeBtn = document.getElementById(`btn-tab-${tabName}`);
             if (activeBtn) {
                 activeBtn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow";
@@ -1048,7 +1090,7 @@
             if (titleEl) titleEl.innerHTML = `<option value="Nenhum">Nenhum Título Ativo</option><option value="Rastreador de Sangue Frio" ${char.title === 'Rastreador de Sangue Frio' ? 'selected' : ''}>Rastreador de Sangue Frio</option>`;
             setTextIfExist('stat-level', char.level || 0);
             const currentMaxXP = getXPRequiredForLevel(char.level);
-            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);       
+            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);         
             const xpBar = document.getElementById('stat-xp-bar');
             if (xpBar) xpBar.style.width = Math.min(100, Math.round(((char.xp || 0) / currentMaxXP) * 100)) + '%';
             const freePointsEl = document.getElementById('stat-free-points');
@@ -1111,7 +1153,7 @@
         };
         window.onClassChange = function(newClassName) {
             const char = getCharacter();
-            const oldClassName = char.characterClass;            
+            const oldClassName = char.characterClass;          
             if (CLASSES_DATABASE[oldClassName]?.startingSkill) {
                 const idx = char.skills.indexOf(CLASSES_DATABASE[oldClassName].startingSkill);
                 if (idx > -1) char.skills.splice(idx, 1);
@@ -1141,7 +1183,7 @@
         };
         function renderAttributes() {
             const container = document.getElementById('attributes-container');
-            if (!container) return;        
+            if (!container) return;           
             const char = getCharacter();
             const attrNames = ["Força", "Agilidade", "Intelecto", "Carisma", "Vigor", "Sanidade", "Éter"];
             // Tabela exata de bônus de modificador de atributos fornecida
@@ -1492,9 +1534,23 @@
         window.openJoinCampaignModal = function() {
             document.getElementById('modal-campaign-join').classList.remove('hidden');
         };
+        window.createCampaignAction = function() {
+            const name = document.getElementById('new-campaign-name').value.trim();
+            if (!name) { alert("Insira um nome para a campanha."); return; }
+            const code = "MESA-" + Math.floor(10000 + Math.random() * 90000);
+            alert(`Campanha "${name}" criada com sucesso!\nCódigo de acesso: ${code}`);
+            closeModal('modal-campaign-create');
+        };
+        window.joinCampaignAction = function() {
+            const code = document.getElementById('join-campaign-id').value.trim();
+            if (!code) { alert("Insira o código da campanha."); return; }
+            alert(`Conectado com sucesso à mesa [${code}]!`);
+            closeModal('modal-campaign-join');
+        };
         window.closeModal = function(id) {
-            document.getElementById(id).classList.add('hidden');
-         };
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.add('hidden');
+        };
         window.onload = function() {
             if (characters.length === 0) {
                 const initialChar = createNewCharacterTemplate("Herói Principal");
