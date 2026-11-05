@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -40,31 +39,37 @@
     <header class="bg-gray-950 border-b border-gray-800 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
             <div class="flex items-center justify-between w-full md:w-auto">
-                <div class="flex items-center space-x-2">
-                    <span class="text-xl sm:text-2xl">🪙⚔️</span>
-                    <h1 class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-cinzel tracking-wide">
-                        Crônicas RPG
-                    </h1>
+                <div class="flex items-center space-x-3">
+                    <!-- Botão Menu Hambúrguer para Celular e Tablet (Visível apenas em telas menores que 'md') -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-gray-900 border border-gray-800 text-amber-400 hover:bg-gray-800 transition focus:outline-none" title="Menu de Navegação">
+                        <span id="hamburger-icon" class="text-xl font-bold block leading-none">☰</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xl sm:text-2xl">🪙⚔️</span>
+                        <h1 class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-cinzel tracking-wide">
+                            Crônicas RPG
+                        </h1>
+                    </div>
                 </div>
                 <button onclick="toggleTheme()" class="md:hidden p-2 rounded-full bg-gray-800 text-amber-400 hover:bg-gray-700 transition" title="Alternar Tema">
                     🌙
                 </button>
             </div>
-            <!-- Tab Navigation - Adaptada para Mobile com Rolagem Horizontal Touch -->
-            <nav class="flex w-full md:w-auto overflow-x-auto no-scrollbar gap-1.5 sm:gap-2 pb-1 md:pb-0 touch-pan-x snap-x">
-                <button onclick="switchTab('economy')" id="btn-tab-economy" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-amber-600 text-white shadow snap-start">
+            <!-- Tab Navigation - Menu Hambúrguer Dropdown em Mobile/Tablet, Barra Fixa em Desktop -->
+            <nav id="nav-menu" class="hidden md:flex w-full md:w-auto flex-col md:flex-row gap-2 pt-2 md:pt-0 pb-1 md:pb-0 border-t border-gray-800 md:border-t-0 transition-all duration-300">
+                <button onclick="switchTab('economy')" id="btn-tab-economy" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-amber-600 text-white shadow text-left md:text-center">
                     💰 Economia
                 </button>
-                <button onclick="switchTab('sheet')" id="btn-tab-sheet" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
+                <button onclick="switchTab('sheet')" id="btn-tab-sheet" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
                     📜 Ficha do Herói
                 </button>
-                <button onclick="switchTab('trade')" id="btn-tab-trade" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
+                <button onclick="switchTab('trade')" id="btn-tab-trade" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
                     🏛️ Comércio
                 </button>
-                <button onclick="switchTab('manager')" id="btn-tab-manager" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
+                <button onclick="switchTab('manager')" id="btn-tab-manager" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
                     📚 Fichas Salvas
                 </button>
-                <button onclick="switchTab('campaigns')" id="btn-tab-campaigns" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
+                <button onclick="switchTab('campaigns')" id="btn-tab-campaigns" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
                     🛡️ Campanhas
                 </button>
             </nav>
@@ -298,7 +303,7 @@
                                 <button onclick="openEquipmentLibraryModal()" class="text-xs px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-amber-400 rounded-lg font-semibold shadow border border-amber-600/30">📖 Biblioteca de Itens</button>
                                 <button onclick="openAddItemModal()" class="text-xs px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold shadow">➕ Item Manual</button>
                             </div>
-                        </div>                 
+                        </div>   
                         <!-- Sub-abas do Inventário -->
                         <div class="flex flex-wrap gap-2 pt-1 border-b border-gray-700 pb-3">
                             <button onclick="switchInventorySubTab('weapons')" id="inv-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
@@ -352,7 +357,7 @@
                                     <option value="5">Nível 5 - Lenda das Vendas</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                   
+                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>
                             <div id="seller-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -371,7 +376,7 @@
                                     <option value="5">Nível 5 - Imperador do Comércio</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>                      
+                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>
                             <div id="merchant-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -536,7 +541,7 @@
                     <p class="text-[11px] sm:text-xs text-gray-400">Selecione itens oficiais para adicionar à ficha.</p>
                 </div>
                 <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold p-1">✕</button>
-            </div>        
+            </div>   
             <div class="flex overflow-x-auto no-scrollbar gap-1.5 pb-2 border-b border-gray-800 touch-pan-x">
                 <button onclick="switchLibraryCategory('weapons')" id="lib-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-amber-600 text-white">⚔️ Armas</button>
                 <button onclick="switchLibraryCategory('armors')" id="lib-tab-armors" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-gray-950 text-gray-300 hover:bg-gray-800">🛡️ Armaduras e Escudos</button>
@@ -995,17 +1000,39 @@
                 if (tabEl) tabEl.classList.add('hidden');
                 const btn = document.getElementById(`btn-tab-${t}`);
                 if (btn) {
-                    btn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700";
+                    btn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center";
                 }
             });
             const targetTab = document.getElementById(`tab-${tabName}`);
-            if (targetTab) targetTab.classList.remove('hidden');       
+            if (targetTab) targetTab.classList.remove('hidden');    
             const activeBtn = document.getElementById(`btn-tab-${tabName}`);
             if (activeBtn) {
-                activeBtn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow";
+                activeBtn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow text-left md:text-center";
             }
             if (tabName === 'manager') renderCharacterManager();
             if (tabName === 'trade') renderTradeTab();
+            // Fecha o menu hambúrguer em celulares e tablets após escolher uma aba
+            if (window.innerWidth < 768) {
+                const navMenu = document.getElementById('nav-menu');
+                const icon = document.getElementById('hamburger-icon');
+                if (navMenu && !navMenu.classList.contains('hidden')) {
+                    navMenu.classList.add('hidden');
+                    if (icon) icon.innerText = '☰';
+                }
+            }
+        };
+        window.toggleMobileMenu = function() {
+            const navMenu = document.getElementById('nav-menu');
+            const icon = document.getElementById('hamburger-icon');
+            if (!navMenu) return;
+            const isHidden = navMenu.classList.contains('hidden');
+            if (isHidden) {
+                navMenu.classList.remove('hidden');
+                if (icon) icon.innerText = '✕';
+            } else {
+                navMenu.classList.add('hidden');
+                if (icon) icon.innerText = '☰';
+            }
         };
         window.toggleTheme = function() {
             const html = document.documentElement;
@@ -1190,7 +1217,7 @@
             if (titleEl) titleEl.innerHTML = `<option value="Nenhum">Nenhum Título Ativo</option><option value="Rastreador de Sangue Frio" ${char.title === 'Rastreador de Sangue Frio' ? 'selected' : ''}>Rastreador de Sangue Frio</option>`;
             setTextIfExist('stat-level', char.level || 0);
             const currentMaxXP = getXPRequiredForLevel(char.level);
-            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);            
+            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);        
             const xpBar = document.getElementById('stat-xp-bar');
             if (xpBar) xpBar.style.width = Math.min(100, Math.round(((char.xp || 0) / currentMaxXP) * 100)) + '%';
             const freePointsEl = document.getElementById('stat-free-points');
@@ -1253,7 +1280,7 @@
         };
         window.onClassChange = function(newClassName) {
             const char = getCharacter();
-            const oldClassName = char.characterClass;          
+            const oldClassName = char.characterClass;        
             if (CLASSES_DATABASE[oldClassName]?.startingSkill) {
                 const idx = char.skills.indexOf(CLASSES_DATABASE[oldClassName].startingSkill);
                 if (idx > -1) char.skills.splice(idx, 1);
@@ -1386,7 +1413,7 @@
         window.saveNewInventoryItem = function() {
             const cat = document.getElementById('newItem-category').value;
             const name = document.getElementById('newItem-name').value.trim();
-            if (!name) { alert("Insira o nome do item."); return; }       
+            if (!name) { alert("Insira o nome do item."); return; }            
             const itemObj = {
                 name: name,
                 type: document.getElementById('newItem-type').value.trim() || "Geral",
