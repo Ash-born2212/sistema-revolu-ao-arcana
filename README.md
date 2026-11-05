@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -29,37 +30,45 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .font-cinzel { font-family: 'Cinzel', serif; }
+        /* Scrollbar oculta para o menu de abas em telas pequenas */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen transition-colors duration-300">
+<body class="bg-gray-900 text-gray-100 min-h-screen transition-colors duration-300 antialiased overflow-x-hidden">
     <!-- Header Navigation & Main Controls -->
     <header class="bg-gray-950 border-b border-gray-800 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
-            <div class="flex items-center space-x-3">
-                <span class="text-2xl">🪙⚔️</span>
-                <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-cinzel">
-                    Crônicas do Multiverso RPG
-                </h1>
-            </div>
-            <!-- Tab Navigation -->
-            <nav class="flex flex-wrap gap-2">
-                <button onclick="switchTab('economy')" id="btn-tab-economy" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow">
-                    💰 Economia & Câmbio
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="flex items-center space-x-2">
+                    <span class="text-xl sm:text-2xl">🪙⚔️</span>
+                    <h1 class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-cinzel tracking-wide">
+                        Crônicas RPG
+                    </h1>
+                </div>
+                <button onclick="toggleTheme()" class="md:hidden p-2 rounded-full bg-gray-800 text-amber-400 hover:bg-gray-700 transition" title="Alternar Tema">
+                    🌙
                 </button>
-                <button onclick="switchTab('sheet')" id="btn-tab-sheet" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
+            </div>
+            <!-- Tab Navigation - Adaptada para Mobile com Rolagem Horizontal Touch -->
+            <nav class="flex w-full md:w-auto overflow-x-auto no-scrollbar gap-1.5 sm:gap-2 pb-1 md:pb-0 touch-pan-x snap-x">
+                <button onclick="switchTab('economy')" id="btn-tab-economy" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-amber-600 text-white shadow snap-start">
+                    💰 Economia
+                </button>
+                <button onclick="switchTab('sheet')" id="btn-tab-sheet" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
                     📜 Ficha do Herói
                 </button>
-                <button onclick="switchTab('trade')" id="btn-tab-trade" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
-                    🏛️ Comércio & Negócios
+                <button onclick="switchTab('trade')" id="btn-tab-trade" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
+                    🏛️ Comércio
                 </button>
-                <button onclick="switchTab('manager')" id="btn-tab-manager" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
-                    📚 Gerenciador de Fichas
+                <button onclick="switchTab('manager')" id="btn-tab-manager" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
+                    📚 Fichas Salvas
                 </button>
-                <button onclick="switchTab('campaigns')" id="btn-tab-campaigns" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
-                    🛡️ Campanhas (Mesa)
+                <button onclick="switchTab('campaigns')" id="btn-tab-campaigns" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 snap-start">
+                    🛡️ Campanhas
                 </button>
             </nav>
-            <div class="flex items-center space-x-3">
+            <div class="hidden md:flex items-center space-x-3">
                 <button onclick="toggleTheme()" class="p-2 rounded-full bg-gray-800 text-amber-400 hover:bg-gray-700 transition" title="Alternar Tema">
                     🌙
                 </button>
@@ -67,14 +76,7 @@
         </div>
     </header>
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 py-6">
-        <!-- ================= TAB 1: ECONOMIA ================= -->
-        <div id="tab-economy" class="space-y-6">
-            <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl backdrop-blur">
-                <div class="flex justify-between items-center mb-6">
-                    <div>
-                        <h2 class="text-2xl font-bold font-cinzel text-amber-400">Tesouro & Moedas</h2>
-                        <p class="text-sm text-gray-400">Conversão oficial: 50 Cobre (PC) = 1 Prata (PP) | 100 Prata (PP) = 1 Ouro (PO) | 1.000 Ouro (PO) = 1 Platina (PL)</p>
+    <main class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
                     </div>
                     <button onclick="optimizeCoins()" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold rounded-xl shadow transition flex items-center gap-2">
                         <span>✨ Otimizar Moedas (Consolidar)</span>
@@ -296,7 +298,7 @@
                                 <button onclick="openEquipmentLibraryModal()" class="text-xs px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-amber-400 rounded-lg font-semibold shadow border border-amber-600/30">📖 Biblioteca de Itens</button>
                                 <button onclick="openAddItemModal()" class="text-xs px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold shadow">➕ Item Manual</button>
                             </div>
-                        </div>                    
+                        </div>                 
                         <!-- Sub-abas do Inventário -->
                         <div class="flex flex-wrap gap-2 pt-1 border-b border-gray-700 pb-3">
                             <button onclick="switchInventorySubTab('weapons')" id="inv-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
@@ -350,7 +352,7 @@
                                     <option value="5">Nível 5 - Lenda das Vendas</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                       
+                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                   
                             <div id="seller-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -369,7 +371,7 @@
                                     <option value="5">Nível 5 - Imperador do Comércio</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>                          
+                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>                      
                             <div id="merchant-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -526,15 +528,23 @@
         </div>
     </div>
     <!-- Modal Biblioteca de Equipamentos -->
-    <div id="modal-equipment-library" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-2xl w-full shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
+    <div id="modal-equipment-library" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-2 sm:p-4">
+        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-4 sm:p-6 max-w-2xl w-full shadow-2xl space-y-4 max-h-[90vh] flex flex-col">
             <div class="flex justify-between items-center border-b border-gray-800 pb-3">
                 <div>
-                    <h3 class="text-lg font-bold font-cinzel text-amber-400">📖 Biblioteca de Equipamentos</h3>
-                    <p class="text-xs text-gray-400">Selecione itens oficiais do acervo para adicionar diretamente à sua ficha.</p>
+                    <h3 class="text-base sm:text-lg font-bold font-cinzel text-amber-400">📖 Biblioteca de Equipamentos</h3>
+                    <p class="text-[11px] sm:text-xs text-gray-400">Selecione itens oficiais para adicionar à ficha.</p>
                 </div>
-                <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold">✕</button>
+                <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold p-1">✕</button>
             </div>        
+            <div class="flex overflow-x-auto no-scrollbar gap-1.5 pb-2 border-b border-gray-800 touch-pan-x">
+                <button onclick="switchLibraryCategory('weapons')" id="lib-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-amber-600 text-white">⚔️ Armas</button>
+                <button onclick="switchLibraryCategory('armors')" id="lib-tab-armors" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-gray-950 text-gray-300 hover:bg-gray-800">🛡️ Armaduras e Escudos</button>
+                <button onclick="switchLibraryCategory('resources')" id="lib-tab-resources" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-gray-950 text-gray-300 hover:bg-gray-800">🪵 Recursos e Ferramentas</button>
+                <button onclick="switchLibraryCategory('consumables')" id="lib-tab-consumables" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-gray-950 text-gray-300 hover:bg-gray-800">🧪 Consumíveis</button>
+            </div>
+                <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold">✕</button>
+            </div>          
             <div class="flex flex-wrap gap-2 pb-2 border-b border-gray-800">
                 <button onclick="switchLibraryCategory('weapons')" id="lib-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
                 <button onclick="switchLibraryCategory('armors')" id="lib-tab-armors" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-950 text-gray-300 hover:bg-gray-800">🛡️ Armaduras e Escudos</button>
@@ -1376,7 +1386,7 @@
         window.saveNewInventoryItem = function() {
             const cat = document.getElementById('newItem-category').value;
             const name = document.getElementById('newItem-name').value.trim();
-            if (!name) { alert("Insira o nome do item."); return; }        
+            if (!name) { alert("Insira o nome do item."); return; }       
             const itemObj = {
                 name: name,
                 type: document.getElementById('newItem-type').value.trim() || "Geral",
