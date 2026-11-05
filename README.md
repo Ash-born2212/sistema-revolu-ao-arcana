@@ -49,7 +49,6 @@
                         <h1 class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-cinzel tracking-wide">
                             Crônicas RPG
                         </h1>
-                    </div>
                 </div>
                 <button onclick="toggleTheme()" class="md:hidden p-2 rounded-full bg-gray-800 text-amber-400 hover:bg-gray-700 transition" title="Alternar Tema">
                     🌙
