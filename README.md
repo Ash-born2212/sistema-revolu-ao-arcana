@@ -33,7 +33,6 @@
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen transition-colors duration-300">
-
     <!-- Header Navigation & Main Controls -->
     <header class="bg-gray-950 border-b border-gray-800 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
@@ -43,7 +42,6 @@
                     Crônicas do Multiverso RPG
                 </h1>
             </div>
-
             <!-- Tab Navigation -->
             <nav class="flex flex-wrap gap-2">
                 <button onclick="switchTab('economy')" id="btn-tab-economy" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow">
@@ -62,7 +60,6 @@
                     🛡️ Campanhas (Mesa)
                 </button>
             </nav>
-
             <div class="flex items-center space-x-3">
                 <button onclick="toggleTheme()" class="p-2 rounded-full bg-gray-800 text-amber-400 hover:bg-gray-700 transition" title="Alternar Tema">
                     🌙
@@ -70,10 +67,8 @@
             </div>
         </div>
     </header>
-
     <!-- Main Container -->
     <main class="max-w-7xl mx-auto px-4 py-6">
-
         <!-- ================= TAB 1: ECONOMIA ================= -->
         <div id="tab-economy" class="space-y-6">
             <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl backdrop-blur">
@@ -86,7 +81,6 @@
                         <span>✨ Otimizar Moedas (Consolidar)</span>
                     </button>
                 </div>
-
                 <!-- Moedas Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div class="bg-gray-900 border border-cyan-800/50 rounded-xl p-4 flex flex-col justify-between shadow-inner">
@@ -118,7 +112,6 @@
                         <input type="number" id="coin-pc" min="0" value="0" oninput="updateCoins()" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3 text-xl font-bold text-orange-300 focus:outline-none focus:border-orange-500">
                     </div>
                 </div>
-
                 <div class="mt-6 p-4 bg-gray-900/90 rounded-xl border border-gray-700 flex flex-wrap justify-between items-center gap-4">
                     <div>
                         <span class="text-sm text-gray-400">Valor Total Equivalente em Cobre (PC):</span>
@@ -130,7 +123,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl">
                     <h3 class="text-xl font-bold font-cinzel text-amber-400 mb-4">Adicionar / Deduzir Moedas</h3>
@@ -160,7 +152,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-4">
@@ -174,7 +165,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ================= TAB 2: FICHA DO PERSONAGEM ================= -->
         <div id="tab-sheet" class="hidden space-y-6">
             <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-4 shadow-xl flex flex-wrap items-center justify-between gap-4">
@@ -189,7 +179,6 @@
                     <button onclick="deleteActiveCharacter()" class="px-4 py-2 bg-red-800 hover:bg-red-700 text-white text-sm font-semibold rounded-xl shadow transition">🗑️ Excluir</button>
                 </div>
             </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="lg:col-span-2 space-y-6">
                     <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-4">
@@ -209,7 +198,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
                                 <label class="block text-xs font-medium text-gray-400 mb-1">Classe</label>
@@ -227,7 +215,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                             <div>
                                 <label class="block text-xs font-medium text-gray-400 mb-1">Profissão</label>
@@ -246,13 +233,11 @@
                                 <input type="text" id="char-rank" oninput="updateCharInfo('rank', this.value)" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-100 text-center font-bold text-amber-400">
                             </div>
                         </div>
-
                         <div>
                             <label class="block text-xs font-medium text-gray-400 mb-1">História do Herói</label>
                             <textarea id="char-history" oninput="updateCharInfo('history', this.value)" rows="2" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-100 text-sm"></textarea>
                         </div>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-4">
                             <h3 class="text-xl font-bold font-cinzel text-amber-400 border-b border-gray-700 pb-2">Status de Batalha</h3>
@@ -275,7 +260,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- SETOR DE ATRIBUTOS COM BÔNUS CALCULADOS -->
                         <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-4">
                             <div class="flex justify-between items-center border-b border-gray-700 pb-2">
@@ -287,7 +271,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-4">
                         <div class="flex justify-between items-center border-b border-gray-700 pb-2">
                             <h3 class="text-xl font-bold font-cinzel text-amber-400">⚡ Habilidades</h3>
@@ -297,7 +280,6 @@
                             <!-- Renderizado via JS -->
                         </div>
                     </div>
-
                     <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-4">
                         <div class="flex justify-between items-center border-b border-gray-700 pb-2">
                             <h3 class="text-xl font-bold font-cinzel text-amber-400">✨ Magias</h3>
@@ -307,7 +289,6 @@
                             <!-- Renderizado via JS -->
                         </div>
                     </div>
-
                     <!-- INVENTÁRIO COM ABAS SEPARADAS -->
                     <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-4">
                         <div class="flex justify-between items-center border-b border-gray-700 pb-2">
@@ -317,7 +298,6 @@
                                 <button onclick="openAddItemModal()" class="text-xs px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold shadow">➕ Item Manual</button>
                             </div>
                         </div>
-                        
                         <!-- Sub-abas do Inventário -->
                         <div class="flex flex-wrap gap-2 pt-1 border-b border-gray-700 pb-3">
                             <button onclick="switchInventorySubTab('weapons')" id="inv-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
@@ -325,14 +305,12 @@
                             <button onclick="switchInventorySubTab('resources')" id="inv-tab-resources" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-700">🪵 Recursos Diversos</button>
                             <button onclick="switchInventorySubTab('consumables')" id="inv-tab-consumables" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-700">🧪 Consumíveis</button>
                         </div>
-
                         <!-- Conteúdo do Inventário -->
                         <div id="inventory-content-container" class="space-y-3 min-h-[160px]">
                             <!-- Renderizado via JS -->
                         </div>
                     </div>
                 </div>
-
                 <div class="space-y-6">
                     <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-4">
                         <h3 class="text-lg font-bold font-cinzel text-amber-400 border-b border-gray-700 pb-2">Guia do Multiverso</h3>
@@ -346,7 +324,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ================= TAB: COMÉRCIO & NEGÓCIOS ================= -->
         <div id="tab-trade" class="hidden space-y-6">
             <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-6">
@@ -360,7 +337,6 @@
                         <span id="trade-active-char-name" class="font-bold text-amber-400 text-sm">Nenhum</span>
                     </div>
                 </div>
-
                 <!-- Seletor de Caminho de Carreira -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 space-y-4 shadow-inner flex flex-col justify-between">
@@ -375,15 +351,13 @@
                                     <option value="5">Nível 5 - Lenda das Vendas</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>
-                            
+                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                        
                             <div id="seller-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
                         </div>
                         <button onclick="simulateTradeAction('seller')" class="w-full py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs rounded-lg shadow transition">Trabalhar como Vendedor (+ Fama)</button>
                     </div>
-
                     <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 space-y-4 shadow-inner flex flex-col justify-between">
                         <div class="space-y-3">
                             <div class="flex justify-between items-center">
@@ -396,8 +370,7 @@
                                     <option value="5">Nível 5 - Imperador do Comércio</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>
-                            
+                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p> 
                             <div id="merchant-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -407,7 +380,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ================= TAB 3: GERENCIADOR DE FICHAS ================= -->
         <div id="tab-manager" class="hidden space-y-6">
             <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl">
@@ -420,16 +392,13 @@
                         <button onclick="createNewCharacter(); switchTab('sheet');" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-xl shadow transition">➕ Criar Novo Herói</button>
                     </div>
                 </div>
-
                 <div class="mb-6">
                     <input type="text" id="manager-search" oninput="renderCharacterManager()" placeholder="🔍 Pesquisar herói por nome, raça ou classe..." class="w-full bg-gray-900 border border-gray-700 rounded-xl p-3 text-gray-100 focus:outline-none focus:border-amber-500">
                 </div>
-
                 <div id="manager-character-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 </div>
             </div>
         </div>
-
         <!-- ================= TAB 4: CAMPANHAS ================= -->
         <div id="tab-campaigns" class="hidden space-y-6">
             <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl space-y-6">
@@ -443,7 +412,6 @@
                         <button onclick="openJoinCampaignModal()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-xl shadow transition">🔗 Entrar com Código</button>
                     </div>
                 </div>
-
                 <div id="active-campaign-panel" class="space-y-6">
                     <div class="text-center py-12 text-gray-500">
                         <span class="text-4xl block mb-2">📜</span>
@@ -452,9 +420,7 @@
                 </div>
             </div>
         </div>
-
     </main>
-
     <!-- Modals -->
     <div id="modal-xp" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
@@ -492,7 +458,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal Detalhes da Magia -->
     <div id="modal-spell-details" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
@@ -506,7 +471,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal Detalhes da Habilidade -->
     <div id="modal-skill-details" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
@@ -520,7 +484,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal Adicionar Item ao Inventário -->
     <div id="modal-add-item" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
@@ -563,7 +526,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal Biblioteca de Equipamentos -->
     <div id="modal-equipment-library" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-2xl w-full shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
@@ -573,29 +535,24 @@
                     <p class="text-xs text-gray-400">Selecione itens oficiais do acervo para adicionar diretamente à sua ficha.</p>
                 </div>
                 <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold">✕</button>
-            </div>
-            
+            </div>     
             <div class="flex flex-wrap gap-2 pb-2 border-b border-gray-800">
                 <button onclick="switchLibraryCategory('weapons')" id="lib-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
                 <button onclick="switchLibraryCategory('armors')" id="lib-tab-armors" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-950 text-gray-300 hover:bg-gray-800">🛡️ Armaduras e Escudos</button>
                 <button onclick="switchLibraryCategory('resources')" id="lib-tab-resources" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-950 text-gray-300 hover:bg-gray-800">🪵 Recursos e Ferramentas</button>
                 <button onclick="switchLibraryCategory('consumables')" id="lib-tab-consumables" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-950 text-gray-300 hover:bg-gray-800">🧪 Consumíveis</button>
             </div>
-
             <div class="mb-3">
                 <input type="text" id="library-search" oninput="renderLibraryItems()" placeholder="🔍 Pesquisar na biblioteca..." class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-xs text-gray-100 focus:outline-none focus:border-amber-500">
             </div>
-
             <div id="library-items-container" class="space-y-2 overflow-y-auto pr-1 flex-1 min-h-[260px] max-h-[40vh]">
                 <!-- Renderizado dinamicamente -->
             </div>
-
             <div class="pt-2 flex justify-end border-t border-gray-800">
                 <button onclick="closeModal('modal-equipment-library')" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 rounded-xl text-xs font-semibold">Fechar</button>
             </div>
         </div>
     </div>
-
     <!-- App Logic Script -->
     <script>
         // Global state initialization to fix ReferenceError
@@ -604,7 +561,6 @@
         let activeCharacterId = characters.length > 0 ? characters[0].id : null;
         let activeInvSubTab = 'weapons';
         let activeLibraryCategory = 'weapons';
-
         const DEITIES_DATABASE = {
             "chronar": { title: "Deus do Tempo", desc: "Senhor das eras e da temporalidade." },
             "elyndra": { title: "Deusa da Vida", desc: "Protetora da flora, fauna e da vitalidade." },
@@ -612,7 +568,6 @@
             "vaelthor": { title: "Deus da Guerra", desc: "Patrono dos campos de batalha e da bravura." },
             "seraphyne": { title: "Deusa da Magia", desc: "Fonte suprema das artes arcanas e do éter." }
         };
-
         const RACES_DATABASE = {
             "Humanos": { desc: "Estatura média entre 1,50m e 1,90m.", ability: "Adaptabilidade: Uma vez por combate, pode repetir um teste ou ataque falho recebendo +2 de bônus.", attrs: { Força: 1, Agilidade: 1, Intelecto: 1, Carisma: 1, Vigor: -1, Sanidade: -1, Éter: -1 } },
             "Meio-Elfos": { desc: "Estrutura humana com refinamento élfico.", ability: "Forja Precisa: Recebe +3 de dano nas armas forjadas através da alquimia ou magia.", attrs: { Força: -1, Agilidade: 1, Intelecto: 3, Carisma: -1, Vigor: -1, Sanidade: -1, Éter: 1 } },
@@ -633,7 +588,6 @@
             "Errante": { desc: "Carcaças reanimadas por magia necrótica.", ability: "Fôlego do Túmulo: Imune a afogamento/veneno; ignora dor do primeiro ferimento.", attrs: { Força: 0, Agilidade: 0, Intelecto: 3, Carisma: -8, Vigor: 1, Sanidade: 1, Éter: 1 } },
             "Demonio Maior": { desc: "Humanos perfeitos com chifres discretos.", ability: "Ressonância Abissal: Força teste mental em raio de 6m, causando perda de Sanidade.", attrs: { Força: 1, Agilidade: 0, Intelecto: 1, Carisma: -3, Vigor: 1, Sanidade: -3, Éter: 2 } }
         };
-
         const CLASSES_DATABASE = {
             "Bárbaro": { 
                 startingSkill: "Avanço Intimidador (Nvl 1): Empurra um inimigo até 3 metros para trás.", 
@@ -728,7 +682,6 @@
                 startingSpell: { name: "Aço Aquecido", level: 1, type: "Suporte / Físico", damage: "Dano da Arma + 1d4 Fogo", desc: "Sobreaquece a própria arma ou a de um aliado. O próximo acerto dessa arma causa dano de fogo bônus e pode derreter escudos.", range: "Toque", cost: "5 de Mana" } 
             }
         };
-
         const SELLER_RANKS = {
             1: { title: "Novato", bonusCarisma: 1, effect: "Clientes locais toleram sua presença, mas ainda duvidam das suas promessas.", funds: "Salário base negociável." },
             2: { title: "Caixeiro-Viajante", bonusCarisma: 2, effect: "Algumas pessoas na cidade já o reconhecem pelo nome.", funds: "Salário base negociável + 5% de comissão por venda." },
@@ -736,7 +689,6 @@
             4: { title: "Negociador Estrela", bonusCarisma: 4, effect: "Aristocratas e comerciantes ricos exigem sua consultoria pessoal.", funds: "Salário base negociável + 20% de comissão e bônus de metas." },
             5: { title: "Lenda das Vendas", bonusCarisma: 5, effect: "Sua palavra é garantia. Você pode vender gelo no deserto.", funds: "Salário alto + 35% de comissão. Acesso a clientes da realeza." }
         };
-
         const MERCHANT_RANKS = {
             1: { title: "Lojista de Esquina", bonusCarisma: 1, effect: "Conhecido apenas no próprio bairro. Mantém o negócio funcionando.", funds: "Lucro básico de loja local." },
             2: { title: "Empreendedor", bonusCarisma: 2, effect: "Fornecedores confiam em você e oferecem descontos iniciais.", funds: "Lucros moderados de expansão comercial." },
@@ -744,7 +696,6 @@
             4: { title: "Magnata", bonusCarisma: 4, effect: "Líderes políticos convidam você para banquetes buscando favores.", funds: "Múltiplas filiais pelo reino. Riqueza substancial." },
             5: { title: "Imperador do Comércio", bonusCarisma: 5, effect: "Monopólio mercadológico. Sua marca dita o valor da moeda local.", funds: "Fundos praticamente ilimitados." }
         };
-
         // Helper function to get the currently active character object
         function getCharacter() {
             let char = characters.find(c => c.id === activeCharacterId);
@@ -759,13 +710,11 @@
             }
             return char;
         }
-
         // Helper function to save characters and history to localStorage
         function saveToStorage() {
             localStorage.setItem('rpg_characters', JSON.stringify(characters));
             localStorage.setItem('rpg_history', JSON.stringify(transactionHistory));
         }
-
         const EQUIPMENT_LIBRARY = {
             weapons: [
                 { name: "Clava de Madeira", type: "Arma de Contusão (Força)", effect: "1d6 + 1", desc: "Bastão de madeira maciça, simples e resistente." },
@@ -852,12 +801,10 @@
                 { name: "Pó de Fumaça", type: "Mistura Química (Intelecto)", effect: "Névoa em pequena área", desc: "Saco que rompe ao impacto, obscurece visão." }
             ]
         };
-
         window.openEquipmentLibraryModal = function() {
             renderLibraryItems();
             document.getElementById('modal-equipment-library').classList.remove('hidden');
         };
-
         window.switchLibraryCategory = function(cat) {
             activeLibraryCategory = cat;
             ['weapons', 'armors', 'resources', 'consumables'].forEach(c => {
@@ -868,18 +815,15 @@
             });
             renderLibraryItems();
         };
-
         window.renderLibraryItems = function() {
             const query = (document.getElementById('library-search').value || '').toLowerCase();
             const container = document.getElementById('library-items-container');
             const items = EQUIPMENT_LIBRARY[activeLibraryCategory] || [];
             const filtered = items.filter(i => i.name.toLowerCase().includes(query) || i.type.toLowerCase().includes(query) || i.desc.toLowerCase().includes(query));
-
             if (filtered.length === 0) {
                 container.innerHTML = '<p class="text-gray-500 italic text-xs text-center py-6">Nenhum item encontrado na biblioteca.</p>';
                 return;
             }
-
             container.innerHTML = filtered.map(item => `
                 <div class="p-3 bg-gray-950 rounded-xl border border-gray-800 flex justify-between items-center gap-3">
                     <div class="space-y-1">
@@ -894,11 +838,9 @@
                 </div>
             `).join('');
         };
-
         window.addItemFromLibrary = function(cat, itemName) {
             const itemTemplate = EQUIPMENT_LIBRARY[cat].find(i => i.name === itemName);
             if (!itemTemplate) return;
-
             const char = getCharacter();
             if (!char.inventory[cat]) char.inventory[cat] = [];
             char.inventory[cat].push(JSON.parse(JSON.stringify(itemTemplate)));
@@ -906,7 +848,6 @@
             renderInventoryItems();
             alert(`"${itemTemplate.name}" adicionado ao inventário com sucesso!`);
         };
-
         window.switchTab = function(tabName) {
             ['economy', 'sheet', 'trade', 'manager', 'campaigns'].forEach(t => {
                 const tabEl = document.getElementById(`tab-${t}`);
@@ -917,8 +858,7 @@
                 }
             });
             const targetTab = document.getElementById(`tab-${tabName}`);
-            if (targetTab) targetTab.classList.remove('hidden');
-            
+            if (targetTab) targetTab.classList.remove('hidden');       
             const activeBtn = document.getElementById(`btn-tab-${tabName}`);
             if (activeBtn) {
                 activeBtn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow";
@@ -926,12 +866,10 @@
             if (tabName === 'manager') renderCharacterManager();
             if (tabName === 'trade') renderTradeTab();
         };
-
         window.toggleTheme = function() {
             const html = document.documentElement;
             html.classList.toggle('dark');
         };
-
         window.switchInventorySubTab = function(subTab) {
             activeInvSubTab = subTab;
             ['weapons', 'armors', 'resources', 'consumables'].forEach(st => {
@@ -942,25 +880,20 @@
             });
             renderInventoryItems();
         };
-
         window.updateCoins = function() {
             const char = getCharacter();
             char.coins.pl = parseInt(document.getElementById('coin-pl').value) || 0;
             char.coins.po = parseInt(document.getElementById('coin-po').value) || 0;
             char.coins.pp = parseInt(document.getElementById('coin-pp').value) || 0;
             char.coins.pc = parseInt(document.getElementById('coin-pc').value) || 0;
-
             const totalPC = (char.coins.pl * 5000000) + (char.coins.po * 5000) + (char.coins.pp * 50) + char.coins.pc;
             document.getElementById('total-copper-val').innerText = totalPC.toLocaleString() + ' PC';
-
             const totalCoinsCount = char.coins.pl + char.coins.po + char.coins.pp + char.coins.pc;
             const totalLb = totalCoinsCount / 50;
             const totalKg = totalLb * 0.453592;
             document.getElementById('total-weight-val').innerText = `${totalKg.toFixed(2)} kg (${totalLb.toFixed(1)} lb)`;
-
             saveToStorage();
         };
-
         function loadCoinInputs() {
             const char = getCharacter();
             document.getElementById('coin-pl').value = char.coins.pl || 0;
@@ -969,23 +902,19 @@
             document.getElementById('coin-pc').value = char.coins.pc || 0;
             updateCoins();
         }
-
         window.optimizeCoins = function() {
             const char = getCharacter();
             let totalPC = (char.coins.pl * 5000000) + (char.coins.po * 5000) + (char.coins.pp * 50) + char.coins.pc;
-
             char.coins.pl = Math.floor(totalPC / 5000000);
             totalPC %= 5000000;
             char.coins.po = Math.floor(totalPC / 5000);
             totalPC %= 5000;
             char.coins.pp = Math.floor(totalPC / 50);
             char.coins.pc = totalPC % 50;
-
             loadCoinInputs();
             saveToStorage();
             alert("Moedas consolidadas com sucesso!");
         };
-
         function createNewCharacterTemplate(name) {
             return {
                 id: 'char_' + Math.random().toString(36).substr(2, 9),
@@ -1015,15 +944,12 @@
                 coins: { pl: 0, po: 10, pp: 50, pc: 100 }
             };
         }
-
         window.processTransaction = function(type) {
             const desc = document.getElementById('trans-desc').value.trim() || "Transação sem descrição";
             const coinType = document.getElementById('trans-coin-type').value;
             const amount = parseInt(document.getElementById('trans-amount').value) || 0;
             const char = getCharacter();
-
             if (amount <= 0) return;
-
             if (type === 'sub') {
                 if (char.coins[coinType] < amount) {
                     alert("Saldo insuficiente nesta moeda!");
@@ -1033,14 +959,12 @@
             } else {
                 char.coins[coinType] += amount;
             }
-
             loadCoinInputs();
             transactionHistory.unshift({ date: new Date().toLocaleTimeString(), desc: `${type === 'add' ? '+' : '-'} ${amount} ${coinType.toUpperCase()} (${desc})` });
             if (transactionHistory.length > 20) transactionHistory.pop();
             renderHistory();
             saveToStorage();
         };
-
         function renderHistory() {
             const histEl = document.getElementById('transaction-history');
             if (transactionHistory.length === 0) {
@@ -1049,19 +973,16 @@
             }
             histEl.innerHTML = transactionHistory.map(h => `<div class="p-2 bg-gray-900 rounded border border-gray-800 flex justify-between"><span>${h.desc}</span><span class="text-xs text-gray-500">${h.date}</span></div>`).join('');
         }
-
         window.clearHistory = function() {
             transactionHistory = [];
             renderHistory();
             saveToStorage();
         };
-
         window.switchActiveCharacter = function(id) {
             activeCharacterId = id;
             loadActiveCharacterToUI();
             saveToStorage();
         };
-
         window.createNewCharacter = function() {
             const newChar = createNewCharacterTemplate("Herói " + (characters.length + 1));
             characters.push(newChar);
@@ -1069,7 +990,6 @@
             loadActiveCharacterToUI();
             saveToStorage();
         };
-
         window.duplicateActiveCharacter = function() {
             const current = getCharacter();
             const copy = JSON.parse(JSON.stringify(current));
@@ -1080,7 +1000,6 @@
             loadActiveCharacterToUI();
             saveToStorage();
         };
-
         window.deleteActiveCharacter = function() {
             if (characters.length <= 1) {
                 alert("Você precisa manter pelo menos uma ficha no sistema.");
@@ -1093,7 +1012,6 @@
                 saveToStorage();
             }
         };
-
         function loadActiveCharacterToUI() {
             const char = getCharacter();
             if (!char.inventory) {
@@ -1102,22 +1020,18 @@
             if (!char.trade) {
                 char.trade = { sellerLevel: 1, merchantLevel: 1 };
             }
-
             const activeSelect = document.getElementById('active-character-select');
             if (activeSelect) {
                 activeSelect.innerHTML = characters.map(c => `<option value="${c.id}" ${c.id === activeCharacterId ? 'selected' : ''}>${c.name} (Nível ${c.level} - ${c.characterClass})</option>`).join('');
             }
-
             const setValueIfExist = (id, val) => {
                 const el = document.getElementById(id);
                 if (el) el.value = val;
             };
-
             const setTextIfExist = (id, val) => {
                 const el = document.getElementById(id);
                 if (el) el.innerText = val;
             };
-
             setValueIfExist('char-name', char.name || '');
             setValueIfExist('char-age', char.age || '');
             setValueIfExist('char-profession', char.profession || '');
@@ -1125,29 +1039,21 @@
             setValueIfExist('char-weight', char.weight || '');
             setValueIfExist('char-rank', char.rank || 'F');
             setValueIfExist('char-history', char.history || '');
-
             const raceEl = document.getElementById('char-race');
             if (raceEl) raceEl.innerHTML = Object.keys(RACES_DATABASE).map(r => `<option value="${r}" ${char.race === r ? 'selected' : ''}>${r}</option>`).join('');
-
             const classEl = document.getElementById('char-class');
             if (classEl) classEl.innerHTML = Object.keys(CLASSES_DATABASE).map(cls => `<option value="${cls}" ${char.characterClass === cls ? 'selected' : ''}>${cls}</option>`).join('');
-
             const deityEl = document.getElementById('char-deity');
             if (deityEl) deityEl.innerHTML = `<option value="">Nenhuma / Sem Divindade</option>` + Object.keys(DEITIES_DATABASE).map(d => `<option value="${d}" ${char.deity === d ? 'selected' : ''}>${d.toUpperCase()} (${DEITIES_DATABASE[d].title})</option>`).join('');
-
             const titleEl = document.getElementById('char-title');
             if (titleEl) titleEl.innerHTML = `<option value="Nenhum">Nenhum Título Ativo</option><option value="Rastreador de Sangue Frio" ${char.title === 'Rastreador de Sangue Frio' ? 'selected' : ''}>Rastreador de Sangue Frio</option>`;
-
             setTextIfExist('stat-level', char.level || 0);
             const currentMaxXP = getXPRequiredForLevel(char.level);
-            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);
-            
+            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);       
             const xpBar = document.getElementById('stat-xp-bar');
             if (xpBar) xpBar.style.width = Math.min(100, Math.round(((char.xp || 0) / currentMaxXP) * 100)) + '%';
-
             const freePointsEl = document.getElementById('stat-free-points');
             if (freePointsEl) freePointsEl.innerText = char.freePoints || 0;
-
             loadCoinInputs();
             renderAttributes();
             renderSkills();
@@ -1156,15 +1062,12 @@
             calculateSecondaryStats();
             renderTradeTab();
         }
-
         window.renderTradeTab = function() {
             const char = getCharacter();
             if (!char.trade) char.trade = { sellerLevel: 1, merchantLevel: 1 };
-
             document.getElementById('trade-active-char-name').innerText = char.name;
             document.getElementById('trade-seller-level').value = char.trade.sellerLevel;
             document.getElementById('trade-merchant-level').value = char.trade.merchantLevel;
-
             const sData = SELLER_RANKS[char.trade.sellerLevel];
             document.getElementById('seller-details-box').innerHTML = `
                 <p><strong class="text-amber-400">Título:</strong> ${sData.title}</p>
@@ -1172,7 +1075,6 @@
                 <p><strong class="text-amber-400">Efeito da Fama:</strong> ${sData.effect}</p>
                 <p><strong class="text-amber-400">Fundos / Comissão:</strong> ${sData.funds}</p>
             `;
-
             const mData = MERCHANT_RANKS[char.trade.merchantLevel];
             document.getElementById('merchant-details-box').innerHTML = `
                 <p><strong class="text-amber-400">Título:</strong> ${mData.title}</p>
@@ -1181,7 +1083,6 @@
                 <p><strong class="text-amber-400">Fundos / Lucro:</strong> ${mData.funds}</p>
             `;
         };
-
         window.updateTradeCareer = function(type, val) {
             const char = getCharacter();
             if (!char.trade) char.trade = { sellerLevel: 1, merchantLevel: 1 };
@@ -1190,7 +1091,6 @@
             saveToStorage();
             renderTradeTab();
         };
-
         window.simulateTradeAction = function(type) {
             const char = getCharacter();
             if (type === 'seller') {
@@ -1201,22 +1101,18 @@
                 alert(`Você gerenciou seu negócio como ${mData.title}! O empreendimento gerou lucros e fortaleceu sua marca na região.`);
             }
         };
-
         window.updateCharInfo = function(field, val) {
             getCharacter()[field] = val;
             saveToStorage();
         };
-
         window.onRaceChange = function(newRace) {
             getCharacter().race = newRace;
             saveToStorage();
             loadActiveCharacterToUI();
         };
-
         window.onClassChange = function(newClassName) {
             const char = getCharacter();
-            const oldClassName = char.characterClass;
-            
+            const oldClassName = char.characterClass;            
             if (CLASSES_DATABASE[oldClassName]?.startingSkill) {
                 const idx = char.skills.indexOf(CLASSES_DATABASE[oldClassName].startingSkill);
                 if (idx > -1) char.skills.splice(idx, 1);
@@ -1226,37 +1122,29 @@
                 const idxSpell = char.spells.findIndex(sp => typeof sp === 'object' ? sp.name === oldSpellName : sp === oldSpellName);
                 if (idxSpell > -1) char.spells.splice(idxSpell, 1);
             }
-
             char.characterClass = newClassName;
-
             if (CLASSES_DATABASE[newClassName]?.startingSkill) {
                 char.skills.unshift(CLASSES_DATABASE[newClassName].startingSkill);
             }
             if (CLASSES_DATABASE[newClassName]?.startingSpell) {
                 char.spells.unshift(CLASSES_DATABASE[newClassName].startingSpell);
             }
-
             saveToStorage();
             loadActiveCharacterToUI();
         };
-
         window.onDeityChange = function(newDeity) {
             getCharacter().deity = newDeity;
             saveToStorage();
         };
-
         window.onTitleChange = function(newTitle) {
             getCharacter().title = newTitle;
             saveToStorage();
         };
-
         function renderAttributes() {
             const container = document.getElementById('attributes-container');
-            if (!container) return;
-            
+            if (!container) return;        
             const char = getCharacter();
             const attrNames = ["Força", "Agilidade", "Intelecto", "Carisma", "Vigor", "Sanidade", "Éter"];
-
             // Tabela exata de bônus de modificador de atributos fornecida
             function getAttributeModifier(val) {
                 if (val >= 10) return 6;
@@ -1274,13 +1162,11 @@
                 if (val <= -10) return -6;
                 return 0;
             }
-
             container.innerHTML = attrNames.map(attr => {
                 const raceBonus = (RACES_DATABASE[char.race]?.attrs[attr]) || 0;
                 const totalVal = (char.attributes[attr] || 0) + raceBonus;
                 const modVal = getAttributeModifier(totalVal);
                 const modStr = modVal >= 0 ? `+${modVal}` : `${modVal}`;
-
                 return `
                     <div class="bg-gray-900 p-3 rounded-xl border border-gray-700 flex justify-between items-center">
                         <div>
@@ -1299,7 +1185,6 @@
                 `;
             }).join('');
         }
-
         window.modifyAttribute = function(attr, delta) {
             const char = getCharacter();
             if (delta > 0 && char.freePoints <= 0) {
@@ -1312,7 +1197,6 @@
             saveToStorage();
             loadActiveCharacterToUI();
         };
-
         function calculateSecondaryStats() {
             const char = getCharacter();
             const vigor = (char.attributes["Vigor"] || 0) + (RACES_DATABASE[char.race]?.attrs["Vigor"] || 0);
@@ -1320,28 +1204,23 @@
             const sanidade = (char.attributes["Sanidade"] || 0) + (RACES_DATABASE[char.race]?.attrs["Sanidade"] || 0);
             const forca = (char.attributes["Força"] || 0) + (RACES_DATABASE[char.race]?.attrs["Força"] || 0);
             const lvl = char.level || 0;
-
             const maxHP = Math.round(vigor * (lvl / 2) + 20);
             const maxMana = Math.round(ether * (lvl / 2) + 10);
             const totalSan = Math.round(sanidade * lvl + 5);
             const defesa = forca + vigor + 10;
-
             document.getElementById('stat-hp').innerText = `${maxHP} / ${maxHP}`;
             document.getElementById('stat-mana').innerText = `${maxMana} / ${maxMana}`;
             document.getElementById('stat-san').innerText = totalSan;
             document.getElementById('stat-def').innerText = defesa;
         }
-
         function renderInventoryItems() {
             const char = getCharacter();
             const container = document.getElementById('inventory-content-container');
             const items = char.inventory[activeInvSubTab] || [];
-
             if (items.length === 0) {
                 container.innerHTML = '<p class="text-gray-500 italic text-xs text-center py-6">Nenhum item nesta categoria.</p>';
                 return;
             }
-
             container.innerHTML = items.map((item, idx) => `
                 <div class="p-3 bg-gray-900 rounded-xl border border-gray-700 flex justify-between items-start gap-3">
                     <div class="space-y-1">
@@ -1356,7 +1235,6 @@
                 </div>
             `).join('');
         }
-
         window.openAddItemModal = function() {
             document.getElementById('newItem-name').value = '';
             document.getElementById('newItem-type').value = '';
@@ -1364,19 +1242,16 @@
             document.getElementById('newItem-desc').value = '';
             document.getElementById('modal-add-item').classList.remove('hidden');
         };
-
         window.saveNewInventoryItem = function() {
             const cat = document.getElementById('newItem-category').value;
             const name = document.getElementById('newItem-name').value.trim();
-            if (!name) { alert("Insira o nome do item."); return; }
-            
+            if (!name) { alert("Insira o nome do item."); return; }            
             const itemObj = {
                 name: name,
                 type: document.getElementById('newItem-type').value.trim() || "Geral",
                 effect: document.getElementById('newItem-effect').value.trim() || "Nenhum",
                 desc: document.getElementById('newItem-desc').value.trim() || "Sem descrição."
             };
-
             const char = getCharacter();
             if (!char.inventory[cat]) char.inventory[cat] = [];
             char.inventory[cat].push(itemObj);
@@ -1384,7 +1259,6 @@
             renderInventoryItems();
             closeModal('modal-add-item');
         };
-
         window.removeInventoryItem = function(cat, idx) {
             const char = getCharacter();
             if (char.inventory[cat]) {
@@ -1393,7 +1267,6 @@
                 renderInventoryItems();
             }
         };
-
         function renderSkills() {
             const char = getCharacter();
             const listEl = document.getElementById('skills-list');
@@ -1416,12 +1289,10 @@
                 `;
             }).join('');
         }
-
         window.openSkillModal = function(idx) {
             const char = getCharacter();
             const s = char.skills[idx];
             if (!s || typeof s !== 'object') return;
-
             document.getElementById('skill-modal-content').innerHTML = `
                 <h3 class="text-xl font-bold font-cinzel text-amber-400 mb-2">${s.name}</h3>
                 <div class="space-y-2 text-xs text-gray-300">
@@ -1437,11 +1308,9 @@
             `;
             document.getElementById('modal-skill-details').classList.remove('hidden');
         };
-
         window.closeSkillModal = function() {
             document.getElementById('modal-skill-details').classList.add('hidden');
         };
-
         function renderSpells() {
             const char = getCharacter();
             const listEl = document.getElementById('spells-list');
@@ -1464,12 +1333,10 @@
                 `;
             }).join('');
         }
-
         window.openSkillModal = function(idx) {
             const char = getCharacter();
             const s = char.skills[idx];
             if (!s || typeof s !== 'object') return;
-
             document.getElementById('skill-modal-content').innerHTML = `
                 <h3 class="text-xl font-bold font-cinzel text-amber-400 mb-2">${s.name}</h3>
                 <div class="space-y-2 text-xs text-gray-300">
@@ -1485,11 +1352,9 @@
             `;
             document.getElementById('modal-skill-details').classList.remove('hidden');
         };
-
         window.closeSkillModal = function() {
             document.getElementById('modal-skill-details').classList.add('hidden');
         };
-
         window.renderSpells = function() {
             const char = getCharacter();
             const listEl = document.getElementById('spells-list');
@@ -1511,12 +1376,10 @@
                 `;
             }).join('');
         };
-
         window.openSpellModal = function(idx) {
             const char = getCharacter();
             const sp = char.spells[idx];
             if (!sp || typeof sp !== 'object') return;
-
             document.getElementById('spell-modal-content').innerHTML = `
                 <h3 class="text-xl font-bold font-cinzel text-amber-400 mb-2">${sp.name}</h3>
                 <div class="space-y-2 text-xs text-gray-300">
@@ -1533,18 +1396,15 @@
             `;
             document.getElementById('modal-spell-details').classList.remove('hidden');
         };
-
         window.closeSpellModal = function() {
             document.getElementById('modal-spell-details').classList.add('hidden');
         };
-
         window.removeItem = function(type, idx) {
             const char = getCharacter();
             char[type].splice(idx, 1);
             saveToStorage();
             loadActiveCharacterToUI();
         };
-
         function getXPRequiredForLevel(lvl) {
             if (lvl < 5) return 60;
             if (lvl < 10) return 180;
@@ -1567,16 +1427,13 @@
             if (lvl < 95) return 11400;
             return 12600;
         }
-
         window.openXPCalculatorModal = function() {
             calculateXPResult();
             document.getElementById('modal-xp').classList.remove('hidden');
         };
-
         window.closeXPCalculatorModal = function() {
             document.getElementById('modal-xp').classList.add('hidden');
         };
-
         window.calculateXPResult = function() {
             const lvl = parseInt(document.getElementById('xp-calc-level').value) || 1;
             const hp = parseInt(document.getElementById('xp-calc-hp').value) || 10;
@@ -1585,13 +1442,11 @@
             document.getElementById('xp-calc-result').innerText = totalXP + ' XP';
             return totalXP;
         };
-
         window.applyCalculatedXP = function() {
             const xpVal = calculateXPResult();
             addXP(xpVal);
             closeXPCalculatorModal();
         };
-
         window.addXP = function(amount) {
             const char = getCharacter();
             char.xp = (char.xp || 0) + amount;
@@ -1606,17 +1461,14 @@
             saveToStorage();
             loadActiveCharacterToUI();
         };
-
         function renderCharacterManager() {
             const query = (document.getElementById('manager-search').value || '').toLowerCase();
             const grid = document.getElementById('manager-character-grid');
             const filtered = characters.filter(c => c.name.toLowerCase().includes(query) || c.race.toLowerCase().includes(query) || c.characterClass.toLowerCase().includes(query));
-
             if (filtered.length === 0) {
                 grid.innerHTML = '<p class="text-gray-500 italic col-span-full text-center py-8">Nenhum herói encontrado.</p>';
                 return;
             }
-
             grid.innerHTML = filtered.map(c => `
                 <div class="bg-gray-900 border border-gray-700 rounded-2xl p-5 shadow-lg flex flex-col justify-between space-y-4">
                     <div>
@@ -1635,19 +1487,15 @@
                 </div>
             `).join('');
         }
-
         window.openCreateCampaignModal = function() {
             document.getElementById('modal-campaign-create').classList.remove('hidden');
         };
-
         window.openJoinCampaignModal = function() {
             document.getElementById('modal-campaign-join').classList.remove('hidden');
         };
-
         window.closeModal = function(id) {
             document.getElementById(id).classList.add('hidden');
-        };
-
+         };
         window.onload = function() {
             if (characters.length === 0) {
                 const initialChar = createNewCharacterTemplate("Herói Principal");
