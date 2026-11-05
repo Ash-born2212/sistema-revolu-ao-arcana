@@ -350,7 +350,7 @@
                                     <option value="5">Nível 5 - Lenda das Vendas</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                          
+                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                       
                             <div id="seller-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -369,7 +369,7 @@
                                     <option value="5">Nível 5 - Imperador do Comércio</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>                         
+                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>                          
                             <div id="merchant-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -591,6 +591,96 @@
             <div class="flex gap-3 pt-2">
                 <button onclick="closeModal('modal-campaign-join')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-200 py-2.5 rounded-xl font-semibold text-xs">Cancelar</button>
                 <button onclick="joinCampaignAction()" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded-xl font-semibold text-xs">Conectar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Criar Habilidade Autoral -->
+    <div id="modal-add-skill" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-bold font-cinzel text-amber-400">Criar Habilidade Autoral</h3>
+                <button onclick="closeModal('modal-add-skill')" class="text-gray-400 hover:text-white font-bold">✕</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-gray-400 mb-1">Nome da Habilidade</label>
+                    <input type="text" id="newSkill-name" placeholder="Ex: Golpe de Vento" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Nível</label>
+                        <input type="number" id="newSkill-level" value="1" min="1" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Tipo</label>
+                        <input type="text" id="newSkill-type" placeholder="Tático / Controle" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Alcance</label>
+                        <input type="text" id="newSkill-range" placeholder="Corpo a corpo (1,5m)" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Dano / Efeito</label>
+                        <input type="text" id="newSkill-damage" placeholder="1d8 + Força" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-1">Descrição Completa</label>
+                    <textarea id="newSkill-desc" rows="3" placeholder="Explique os detalhes e efeitos da habilidade..." class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100"></textarea>
+                </div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeModal('modal-add-skill')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-200 py-2.5 rounded-xl font-semibold text-xs">Cancelar</button>
+                <button onclick="saveNewSkill()" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded-xl font-semibold text-xs">Salvar Habilidade</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Criar Magia Autoral -->
+    <div id="modal-add-spell" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-bold font-cinzel text-amber-400">Criar Magia Autoral</h3>
+                <button onclick="closeModal('modal-add-spell')" class="text-gray-400 hover:text-white font-bold">✕</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-gray-400 mb-1">Nome da Magia</label>
+                    <input type="text" id="newSpell-name" placeholder="Ex: Esfera de Chamas" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Nível</label>
+                        <input type="number" id="newSpell-level" value="1" min="1" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Tipo</label>
+                        <input type="text" id="newSpell-type" placeholder="Magia Elemental / Fogo" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Alcance</label>
+                        <input type="text" id="newSpell-range" placeholder="12m" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Dano</label>
+                        <input type="text" id="newSpell-damage" placeholder="2d6 Fogo" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Custo Mana</label>
+                        <input type="text" id="newSpell-cost" placeholder="5 de Mana" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-1">Descrição Completa</label>
+                    <textarea id="newSpell-desc" rows="3" placeholder="Explique como a magia funciona..." class="w-full bg-gray-950 border border-gray-700 rounded-lg p-2 text-gray-100"></textarea>
+                </div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeModal('modal-add-spell')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-200 py-2.5 rounded-xl font-semibold text-xs">Cancelar</button>
+                <button onclick="saveNewSpell()" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded-xl font-semibold text-xs">Salvar Magia</button>
             </div>
         </div>
     </div>
@@ -899,7 +989,7 @@
                 }
             });
             const targetTab = document.getElementById(`tab-${tabName}`);
-            if (targetTab) targetTab.classList.remove('hidden');          
+            if (targetTab) targetTab.classList.remove('hidden');       
             const activeBtn = document.getElementById(`btn-tab-${tabName}`);
             if (activeBtn) {
                 activeBtn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow";
@@ -1090,7 +1180,7 @@
             if (titleEl) titleEl.innerHTML = `<option value="Nenhum">Nenhum Título Ativo</option><option value="Rastreador de Sangue Frio" ${char.title === 'Rastreador de Sangue Frio' ? 'selected' : ''}>Rastreador de Sangue Frio</option>`;
             setTextIfExist('stat-level', char.level || 0);
             const currentMaxXP = getXPRequiredForLevel(char.level);
-            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);         
+            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);            
             const xpBar = document.getElementById('stat-xp-bar');
             if (xpBar) xpBar.style.width = Math.min(100, Math.round(((char.xp || 0) / currentMaxXP) * 100)) + '%';
             const freePointsEl = document.getElementById('stat-free-points');
@@ -1183,7 +1273,7 @@
         };
         function renderAttributes() {
             const container = document.getElementById('attributes-container');
-            if (!container) return;           
+            if (!container) return;         
             const char = getCharacter();
             const attrNames = ["Força", "Agilidade", "Intelecto", "Carisma", "Vigor", "Sanidade", "Éter"];
             // Tabela exata de bônus de modificador de atributos fornecida
@@ -1286,7 +1376,7 @@
         window.saveNewInventoryItem = function() {
             const cat = document.getElementById('newItem-category').value;
             const name = document.getElementById('newItem-name').value.trim();
-            if (!name) { alert("Insira o nome do item."); return; }            
+            if (!name) { alert("Insira o nome do item."); return; }        
             const itemObj = {
                 name: name,
                 type: document.getElementById('newItem-type').value.trim() || "Geral",
@@ -1337,13 +1427,13 @@
             document.getElementById('skill-modal-content').innerHTML = `
                 <h3 class="text-xl font-bold font-cinzel text-amber-400 mb-2">${s.name}</h3>
                 <div class="space-y-2 text-xs text-gray-300">
-                    <p><strong class="text-amber-400">Nível:</strong> ${s.level}</p>
-                    <p><strong class="text-amber-400">Tipo:</strong> ${s.type}</p>
-                    <p><strong class="text-amber-400">Alcance:</strong> ${s.range}</p>
-                    <p><strong class="text-amber-400">Dano / Efeito:</strong> ${s.damage}</p>
+                    <p><strong class="text-amber-400">Nível:</strong> ${s.level || 1}</p>
+                    <p><strong class="text-amber-400">Tipo:</strong> ${s.type || 'Geral'}</p>
+                    <p><strong class="text-amber-400">Alcance:</strong> ${s.range || 'Pessoal'}</p>
+                    <p><strong class="text-amber-400">Dano/Efeito:</strong> ${s.damage || 'Nenhum'}</p>
                     <div class="p-3 bg-gray-950 rounded-lg border border-gray-800 mt-3">
                         <strong class="text-amber-400 block mb-1">Descrição Completa:</strong>
-                        <p class="text-gray-200 leading-relaxed">${s.desc}</p>
+                        <p class="text-gray-200 leading-relaxed">${s.desc || 'Sem descrição.'}</p>
                     </div>
                 </div>
             `;
@@ -1352,53 +1442,66 @@
         window.closeSkillModal = function() {
             document.getElementById('modal-skill-details').classList.add('hidden');
         };
-        function renderSpells() {
-            const char = getCharacter();
-            const listEl = document.getElementById('spells-list');
-            if (!listEl) return;
-            if (!char.spells || char.spells.length === 0) {
-                listEl.innerHTML = '<p class="text-gray-500 italic text-xs">Nenhuma magia cadastrada.</p>';
-                return;
-            }
-            listEl.innerHTML = char.spells.map((sp, idx) => {
-                const spName = typeof sp === 'object' ? sp.name : sp;
-                const hasDetails = typeof sp === 'object' && sp.desc;
-                return `
-                    <div class="p-2.5 bg-gray-900 rounded-xl border border-gray-700 flex justify-between items-center gap-2">
-                        <div class="flex items-center gap-2">
-                            <span class="text-gray-200 text-xs font-bold">${spName}</span>
-                            ${hasDetails ? `<button onclick="openSpellModal(${idx})" class="text-[10px] bg-amber-600/35 border border-amber-600/50 text-amber-300 px-1.5 py-0.5 rounded hover:bg-amber-600/50">Detalhes</button>` : ''}
-                        </div>
-                        <button onclick="removeItem('spells', ${idx})" class="text-red-400 font-bold text-xs">✕</button>
-                    </div>
-                `;
-            }).join('');
-        }
-        window.openSkillModal = function(idx) {
-            const char = getCharacter();
-            const s = char.skills[idx];
-            if (!s || typeof s !== 'object') return;
-            document.getElementById('skill-modal-content').innerHTML = `
-                <h3 class="text-xl font-bold font-cinzel text-amber-400 mb-2">${s.name}</h3>
-                <div class="space-y-2 text-xs text-gray-300">
-                    <p><strong class="text-amber-400">Nível:</strong> ${s.level}</p>
-                    <p><strong class="text-amber-400">Tipo:</strong> ${s.type}</p>
-                    <p><strong class="text-amber-400">Alcance:</strong> ${s.range}</p>
-                    <p><strong class="text-amber-400">Dano / Efeito:</strong> ${s.damage}</p>
-                    <div class="p-3 bg-gray-950 rounded-lg border border-gray-800 mt-3">
-                        <strong class="text-amber-400 block mb-1">Descrição Completa:</strong>
-                        <p class="text-gray-200 leading-relaxed">${s.desc}</p>
-                    </div>
-                </div>
-            `;
-            document.getElementById('modal-skill-details').classList.remove('hidden');
+        window.openAddSkillModal = function() {
+            document.getElementById('newSkill-name').value = '';
+            document.getElementById('newSkill-level').value = '1';
+            document.getElementById('newSkill-type').value = '';
+            document.getElementById('newSkill-range').value = '';
+            document.getElementById('newSkill-damage').value = '';
+            document.getElementById('newSkill-desc').value = '';
+            document.getElementById('modal-add-skill').classList.remove('hidden');
         };
-        window.closeSkillModal = function() {
-            document.getElementById('modal-skill-details').classList.add('hidden');
+        window.saveNewSkill = function() {
+            const name = document.getElementById('newSkill-name').value.trim();
+            if (!name) { alert("Insira o nome da habilidade."); return; }
+            const skillObj = {
+                name: name,
+                level: parseInt(document.getElementById('newSkill-level').value) || 1,
+                type: document.getElementById('newSkill-type').value.trim() || "Geral",
+                range: document.getElementById('newSkill-range').value.trim() || "Pessoal",
+                damage: document.getElementById('newSkill-damage').value.trim() || "Nenhum",
+                desc: document.getElementById('newSkill-desc').value.trim() || "Sem descrição."
+            };
+            const char = getCharacter();
+            if (!char.skills) char.skills = [];
+            char.skills.push(skillObj);
+            saveToStorage();
+            renderSkills();
+            closeModal('modal-add-skill');
+        };
+        window.openAddSpellModal = function() {
+            document.getElementById('newSpell-name').value = '';
+            document.getElementById('newSpell-level').value = '1';
+            document.getElementById('newSpell-type').value = '';
+            document.getElementById('newSpell-range').value = '';
+            document.getElementById('newSpell-damage').value = '';
+            document.getElementById('newSpell-cost').value = '';
+            document.getElementById('newSpell-desc').value = '';
+            document.getElementById('modal-add-spell').classList.remove('hidden');
+        };
+        window.saveNewSpell = function() {
+            const name = document.getElementById('newSpell-name').value.trim();
+            if (!name) { alert("Insira o nome da magia."); return; }
+            const spellObj = {
+                name: name,
+                level: parseInt(document.getElementById('newSpell-level').value) || 1,
+                type: document.getElementById('newSpell-type').value.trim() || "Arcana",
+                range: document.getElementById('newSpell-range').value.trim() || "12m",
+                damage: document.getElementById('newSpell-damage').value.trim() || "Nenhum",
+                cost: document.getElementById('newSpell-cost').value.trim() || "5 de Mana",
+                desc: document.getElementById('newSpell-desc').value.trim() || "Sem descrição."
+            };
+            const char = getCharacter();
+            if (!char.spells) char.spells = [];
+            char.spells.push(spellObj);
+            saveToStorage();
+            renderSpells();
+            closeModal('modal-add-spell');
         };
         window.renderSpells = function() {
             const char = getCharacter();
             const listEl = document.getElementById('spells-list');
+            if (!listEl) return;
             if (!char.spells || char.spells.length === 0) {
                 listEl.innerHTML = '<p class="text-gray-500 italic text-xs">Nenhuma magia cadastrada.</p>';
                 return;
