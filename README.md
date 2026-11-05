@@ -1663,7 +1663,6 @@
                         <button onclick="activeCharacterId = '${c.id}'; duplicateActiveCharacter(); renderCharacterManager();" class="px-3 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs rounded-lg">📋</button>
                         <button onclick="activeCharacterId = '${c.id}'; deleteActiveCharacter(); renderCharacterManager();" class="px-3 py-2 bg-red-900/40 hover:bg-red-900 text-red-300 text-xs rounded-lg">🗑️</button>
                     </div>
-                </div>
             `).join('');
         }
         window.openCreateCampaignModal = function() {
