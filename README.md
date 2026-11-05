@@ -29,51 +29,37 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .font-cinzel { font-family: 'Cinzel', serif; }
-        /* Scrollbar oculta para o menu de abas em telas pequenas */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen transition-colors duration-300 antialiased overflow-x-hidden">
+<body class="bg-gray-900 text-gray-100 min-h-screen transition-colors duration-300">
     <!-- Header Navigation & Main Controls -->
     <header class="bg-gray-950 border-b border-gray-800 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
-            <div class="flex items-center justify-between w-full md:w-auto">
-                <div class="flex items-center space-x-3">
-                    <!-- Botão Menu Hambúrguer para Celular e Tablet (Visível apenas em telas menores que 'md') -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-gray-900 border border-gray-800 text-amber-400 hover:bg-gray-800 transition focus:outline-none" title="Menu de Navegação">
-                        <span id="hamburger-icon" class="text-xl font-bold block leading-none">☰</span>
-                    </button>
-                    <div class="flex items-center space-x-2">
-                        <span class="text-xl sm:text-2xl">🪙⚔️</span>
-                        <h1 class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-cinzel tracking-wide">
-                            Crônicas RPG
-                        </h1>
-                    </div>
-                </div>
-                <button onclick="toggleTheme()" class="md:hidden p-2 rounded-full bg-gray-800 text-amber-400 hover:bg-gray-700 transition" title="Alternar Tema">
-                    🌙
-                </button>
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🪙⚔️</span>
+                <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-cinzel">
+                    Crônicas do Multiverso RPG
+                </h1>
             </div>
-            <!-- Tab Navigation - Menu Hambúrguer Dropdown em Mobile/Tablet, Barra Fixa em Desktop -->
-            <nav id="nav-menu" class="hidden md:flex w-full md:w-auto flex-col md:flex-row gap-2 pt-2 md:pt-0 pb-1 md:pb-0 border-t border-gray-800 md:border-t-0 transition-all duration-300">
-                <button onclick="switchTab('economy')" id="btn-tab-economy" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-amber-600 text-white shadow text-left md:text-center">
-                    💰 Economia
+            <!-- Tab Navigation -->
+            <nav class="flex flex-wrap gap-2">
+                <button onclick="switchTab('economy')" id="btn-tab-economy" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow">
+                    💰 Economia & Câmbio
                 </button>
-                <button onclick="switchTab('sheet')" id="btn-tab-sheet" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
+                <button onclick="switchTab('sheet')" id="btn-tab-sheet" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
                     📜 Ficha do Herói
                 </button>
-                <button onclick="switchTab('trade')" id="btn-tab-trade" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
-                    🏛️ Comércio
+                <button onclick="switchTab('trade')" id="btn-tab-trade" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
+                    🏛️ Comércio & Negócios
                 </button>
-                <button onclick="switchTab('manager')" id="btn-tab-manager" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
-                    📚 Fichas Salvas
+                <button onclick="switchTab('manager')" id="btn-tab-manager" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
+                    📚 Gerenciador de Fichas
                 </button>
-                <button onclick="switchTab('campaigns')" id="btn-tab-campaigns" class="px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center">
-                    🛡️ Campanhas
+                <button onclick="switchTab('campaigns')" id="btn-tab-campaigns" class="px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700">
+                    🛡️ Campanhas (Mesa)
                 </button>
             </nav>
-            <div class="hidden md:flex items-center space-x-3">
+            <div class="flex items-center space-x-3">
                 <button onclick="toggleTheme()" class="p-2 rounded-full bg-gray-800 text-amber-400 hover:bg-gray-700 transition" title="Alternar Tema">
                     🌙
                 </button>
@@ -81,7 +67,14 @@
         </div>
     </header>
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <!-- ================= TAB 1: ECONOMIA ================= -->
+        <div id="tab-economy" class="space-y-6">
+            <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-6 shadow-xl backdrop-blur">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold font-cinzel text-amber-400">Tesouro & Moedas</h2>
+                        <p class="text-sm text-gray-400">Conversão oficial: 50 Cobre (PC) = 1 Prata (PP) | 100 Prata (PP) = 1 Ouro (PO) | 1.000 Ouro (PO) = 1 Platina (PL)</p>
                     </div>
                     <button onclick="optimizeCoins()" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold rounded-xl shadow transition flex items-center gap-2">
                         <span>✨ Otimizar Moedas (Consolidar)</span>
@@ -303,7 +296,7 @@
                                 <button onclick="openEquipmentLibraryModal()" class="text-xs px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-amber-400 rounded-lg font-semibold shadow border border-amber-600/30">📖 Biblioteca de Itens</button>
                                 <button onclick="openAddItemModal()" class="text-xs px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold shadow">➕ Item Manual</button>
                             </div>
-                        </div>                   
+                        </div>          
                         <!-- Sub-abas do Inventário -->
                         <div class="flex flex-wrap gap-2 pt-1 border-b border-gray-700 pb-3">
                             <button onclick="switchInventorySubTab('weapons')" id="inv-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
@@ -357,7 +350,7 @@
                                     <option value="5">Nível 5 - Lenda das Vendas</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>             
+                            <p class="text-xs text-gray-400">Progride acumulando fama através do contato direto com clientes, lábia e comissões.</p>                      
                             <div id="seller-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -376,7 +369,7 @@
                                     <option value="5">Nível 5 - Imperador do Comércio</option>
                                 </select>
                             </div>
-                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>                       
+                            <p class="text-xs text-gray-400">Progride expandindo negócios, contratando vendedores e ditando o valor da economia.</p>               
                             <div id="merchant-details-box" class="p-3 bg-gray-950 rounded-lg border border-gray-800 space-y-2 text-xs text-gray-300">
                                 <!-- Preenchido via JS -->
                             </div>
@@ -533,23 +526,15 @@
         </div>
     </div>
     <!-- Modal Biblioteca de Equipamentos -->
-    <div id="modal-equipment-library" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-2 sm:p-4">
-        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-4 sm:p-6 max-w-2xl w-full shadow-2xl space-y-4 max-h-[90vh] flex flex-col">
+    <div id="modal-equipment-library" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-2xl w-full shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
             <div class="flex justify-between items-center border-b border-gray-800 pb-3">
                 <div>
-                    <h3 class="text-base sm:text-lg font-bold font-cinzel text-amber-400">📖 Biblioteca de Equipamentos</h3>
-                    <p class="text-[11px] sm:text-xs text-gray-400">Selecione itens oficiais para adicionar à ficha.</p>
+                    <h3 class="text-lg font-bold font-cinzel text-amber-400">📖 Biblioteca de Equipamentos</h3>
+                    <p class="text-xs text-gray-400">Selecione itens oficiais do acervo para adicionar diretamente à sua ficha.</p>
                 </div>
-                <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold p-1">✕</button>
-            </div>           
-            <div class="flex overflow-x-auto no-scrollbar gap-1.5 pb-2 border-b border-gray-800 touch-pan-x">
-                <button onclick="switchLibraryCategory('weapons')" id="lib-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-amber-600 text-white">⚔️ Armas</button>
-                <button onclick="switchLibraryCategory('armors')" id="lib-tab-armors" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-gray-950 text-gray-300 hover:bg-gray-800">🛡️ Armaduras e Escudos</button>
-                <button onclick="switchLibraryCategory('resources')" id="lib-tab-resources" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-gray-950 text-gray-300 hover:bg-gray-800">🪵 Recursos e Ferramentas</button>
-                <button onclick="switchLibraryCategory('consumables')" id="lib-tab-consumables" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-gray-950 text-gray-300 hover:bg-gray-800">🧪 Consumíveis</button>
-            </div>
                 <button onclick="closeModal('modal-equipment-library')" class="text-gray-400 hover:text-white font-bold">✕</button>
-            </div>          
+            </div>           
             <div class="flex flex-wrap gap-2 pb-2 border-b border-gray-800">
                 <button onclick="switchLibraryCategory('weapons')" id="lib-tab-weapons" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white">⚔️ Armas</button>
                 <button onclick="switchLibraryCategory('armors')" id="lib-tab-armors" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-950 text-gray-300 hover:bg-gray-800">🛡️ Armaduras e Escudos</button>
@@ -1000,39 +985,17 @@
                 if (tabEl) tabEl.classList.add('hidden');
                 const btn = document.getElementById(`btn-tab-${t}`);
                 if (btn) {
-                    btn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700 text-left md:text-center";
+                    btn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-gray-800 text-gray-300 hover:bg-gray-700";
                 }
             });
             const targetTab = document.getElementById(`tab-${tabName}`);
-            if (targetTab) targetTab.classList.remove('hidden');           
+            if (targetTab) targetTab.classList.remove('hidden');            
             const activeBtn = document.getElementById(`btn-tab-${tabName}`);
             if (activeBtn) {
-                activeBtn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow text-left md:text-center";
+                activeBtn.className = "px-4 py-2 rounded-lg font-medium text-sm transition-all bg-amber-600 text-white shadow";
             }
             if (tabName === 'manager') renderCharacterManager();
             if (tabName === 'trade') renderTradeTab();
-            // Fecha o menu hambúrguer em celulares e tablets após escolher uma aba
-            if (window.innerWidth < 768) {
-                const navMenu = document.getElementById('nav-menu');
-                const icon = document.getElementById('hamburger-icon');
-                if (navMenu && !navMenu.classList.contains('hidden')) {
-                    navMenu.classList.add('hidden');
-                    if (icon) icon.innerText = '☰';
-                }
-            }
-        };
-        window.toggleMobileMenu = function() {
-            const navMenu = document.getElementById('nav-menu');
-            const icon = document.getElementById('hamburger-icon');
-            if (!navMenu) return;
-            const isHidden = navMenu.classList.contains('hidden');
-            if (isHidden) {
-                navMenu.classList.remove('hidden');
-                if (icon) icon.innerText = '✕';
-            } else {
-                navMenu.classList.add('hidden');
-                if (icon) icon.innerText = '☰';
-            }
         };
         window.toggleTheme = function() {
             const html = document.documentElement;
@@ -1217,7 +1180,7 @@
             if (titleEl) titleEl.innerHTML = `<option value="Nenhum">Nenhum Título Ativo</option><option value="Rastreador de Sangue Frio" ${char.title === 'Rastreador de Sangue Frio' ? 'selected' : ''}>Rastreador de Sangue Frio</option>`;
             setTextIfExist('stat-level', char.level || 0);
             const currentMaxXP = getXPRequiredForLevel(char.level);
-            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);          
+            setTextIfExist('stat-xp-text', `${char.xp || 0} / ${currentMaxXP}`);           
             const xpBar = document.getElementById('stat-xp-bar');
             if (xpBar) xpBar.style.width = Math.min(100, Math.round(((char.xp || 0) / currentMaxXP) * 100)) + '%';
             const freePointsEl = document.getElementById('stat-free-points');
@@ -1280,7 +1243,7 @@
         };
         window.onClassChange = function(newClassName) {
             const char = getCharacter();
-            const oldClassName = char.characterClass;       
+            const oldClassName = char.characterClass;          
             if (CLASSES_DATABASE[oldClassName]?.startingSkill) {
                 const idx = char.skills.indexOf(CLASSES_DATABASE[oldClassName].startingSkill);
                 if (idx > -1) char.skills.splice(idx, 1);
@@ -1310,7 +1273,7 @@
         };
         function renderAttributes() {
             const container = document.getElementById('attributes-container');
-            if (!container) return;     
+            if (!container) return;            
             const char = getCharacter();
             const attrNames = ["Força", "Agilidade", "Intelecto", "Carisma", "Vigor", "Sanidade", "Éter"];
             // Tabela exata de bônus de modificador de atributos fornecida
@@ -1413,7 +1376,7 @@
         window.saveNewInventoryItem = function() {
             const cat = document.getElementById('newItem-category').value;
             const name = document.getElementById('newItem-name').value.trim();
-            if (!name) { alert("Insira o nome do item."); return; }         
+            if (!name) { alert("Insira o nome do item."); return; }           
             const itemObj = {
                 name: name,
                 type: document.getElementById('newItem-type').value.trim() || "Geral",
