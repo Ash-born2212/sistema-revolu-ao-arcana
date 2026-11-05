@@ -1,4 +1,3 @@
-# sistema-revolu-ao-arcana[rpg_system_character_sheet_manager.html](https://github.com/user-attachments/files/34433018/rpg_system_character_sheet_manager.html)
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
