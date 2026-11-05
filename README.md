@@ -117,7 +117,6 @@
                         </div>
                         <input type="number" id="coin-pc" min="0" value="0" oninput="updateCoins()" class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3 text-xl font-bold text-orange-300 focus:outline-none focus:border-orange-500">
                     </div>
-                </div>
                 <div class="mt-6 p-4 bg-gray-900/90 rounded-xl border border-gray-700 flex flex-wrap justify-between items-center gap-4">
                     <div>
                         <span class="text-sm text-gray-400">Valor Total Equivalente em Cobre (PC):</span>
